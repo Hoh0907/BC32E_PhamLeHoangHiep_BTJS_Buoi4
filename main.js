@@ -15,9 +15,9 @@ document.getElementById('btnSort').onclick = function() {
         var Num2 = Number(document.getElementById('Num2').value);
         var Num3 = Number(document.getElementById('Num3').value);
         var sapXep = '';
-        if (Num1 > Num2 && Num1 > Num3 && Num2 > Num3) {
+        if (Num1 > Num2 && Num1 > Num3 && (Num2 > Num3 || Num2 == Num3)) {
             sapXep = Num3 + " < " + Num2 + " < " + Num1;
-        } else if (Num1 > Num3 && Num3 > Num2 && Num1 > Num2) {
+        } else if ((Num1 > Num3 || Num1 == Num3) && Num3 > Num2 && Num1 > Num2) {
             sapXep = Num2 + " < " + Num3 + " < " + Num1;
         } else if (Num1 > Num2 && Num3 > Num1) {
             sapXep = Num2 + " < " + Num1 + " < " + Num3;
@@ -25,6 +25,8 @@ document.getElementById('btnSort').onclick = function() {
             sapXep = Num3 + " < " + Num1 + " < " + Num2;
         } else if (Num2 > Num1 && Num3 > Num1 && Num2 > Num3) {
             sapXep = Num1 + " < " + Num3 + " < " + Num2;
+        } else if (Num1 > Num3 && Num2 > Num3 && Num1 == Num2) {
+            sapXep = Num3 + " < " + Num2 + " < " + Num1;
         } else {
             sapXep = Num1 + " < " + Num2 + " < " + Num3;
         }
